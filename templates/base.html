@@ -1,0 +1,53 @@
+<html>
+{% extends "bootstrap/base.html" %}
+
+{% block title %}
+NBA DATA
+{% endblock %}
+
+{% block styles %}
+{{super()}}
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0, user-scalable=yes" /> 
+<link rel="shortcut icon" href="{{ url_for('static', filename='image/favicon.ico')}}" />
+<link rel="stylesheet" href="{{url_for('.static', filename='css/starter-template.css')}}">
+<link rel= "stylesheet" href= "{{ url_for('static',filename='css/image.css')}}">
+{% endblock %}
+
+{% block content %}
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="{{ url_for('login') }}">Login</a></li>
+            <li><a href="{{ url_for('signup') }}">Sign Up</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+
+
+    <div class="container">
+      <br>
+      
+      <div class="starter-template">
+        <img class = "setting" src="{{url_for('.static', filename='image/NBA_Header.png')}}">
+
+        <h1>Welcome to the wonderland!</h1>
+        <p class="lead">Use this website to search for the information of all NBA players you like.<br> All you need to do is Login!</p>
+      </div>
+
+    </div><!-- /.container -->
+{% endblock %}
+</html>

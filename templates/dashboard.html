@@ -1,0 +1,54 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>NBA DATA</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='image/favicon.ico')}}" />
+    <!-- <script type = "text/javascript" src = "{{ url_for('static', filename = 'success.js') }}" ></script> -->
+    <!-- <link rel="stylesheet" href="../css/index.css"> -->
+    <link rel= "stylesheet" href= "{{ url_for('static',filename='css/index.css')}}">
+</head>
+   <body>
+    <div class = "header">
+      <div class = "logo">
+        <img src = "{{ url_for('static', filename='image/nba-logo.png')}}">
+      </div>
+
+      <div class = "menu">
+        <ul>
+          <li><a class = "one" href = "/">Logout</a></li>
+          <li><a class = "one" href = "https://www.amazon.com/NBA-Gear/b?ie=UTF8&node=374306011">Shopping</a></li>
+          <li><a class = "one" href = "#">News</a></li>
+          <li><a class = "one" href = "#">Teams</a></li>
+          <li><a class = "one" href = "/listplayer">Players</a></li>
+          <li><a class = "one" href = "/initpsql">All</a></li>
+          <li><a class = "one" href = "#">Home</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="main">
+      <div class="pic">
+        <img src="{{ url_for('static', filename='image/bg2.jpg')}}">
+      </div>
+    
+      <div class="content" >
+        <h1>Welcome to NBA Data</h1>
+
+      <form action = "/result" method = "POST">
+        <ul>
+          <li class = "bar">Player Name:&nbsp&nbsp<input class = "smallbar" type = "text" name = "pname" value="*"/></li>
+          <li class = "bar">&nbspTeam Name:&nbsp&nbsp<input class = "smallbar" type = "text" name = "tname" value="*"/></li>
+        </ul>
+        <div class = "submit">
+           <span><input class = "button" type = "submit" value = "Search"/>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
+           <span><a class = "button" href = "/enterplayer">Insert</a></span>
+         </div>
+        </form>
+      </div>
+      
+    </div>
+   </body>
+   <div class="footer">
+    © 2019 Yiqian W, Yuanyuan Y. Rights statement.
+  </div>  
+</html>

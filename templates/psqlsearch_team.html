@@ -1,0 +1,107 @@
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0, user-scalable=yes" /> 
+	<title>Search Data</title>
+  <link rel="shortcut icon" href="{{ url_for('static', filename='image/favicon.ico')}}" />
+	<link rel= "stylesheet" href= "{{ url_for('static',filename='css/index.css')}}">
+</head>
+   <body>
+      
+   	<div class = "center">
+      <br>
+      <h2>PostgreSQL Search For Team</h2>
+      <br>
+       {% for row in rows_team %}
+        <dl>
+          <dt>Team Name:&nbsp&nbsp</dt>
+          <dd>{{row["name"]}}</dd>
+
+          <dt>Location:&nbsp&nbsp</dt>
+          <dd>{{row["location"]}}</dd>
+
+          <dt>All Star Players:&nbsp&nbsp</dt>
+          <dd>{{row["allstarplayer"]}}</dd>
+
+          <dt>Number of Champion:&nbsp&nbsp</dt>
+          <dd>{{row["numofchampion"]}}</dd>
+        </dl>
+       {% endfor %}
+ 
+    <hr>
+
+       <br>
+       <h2>Team Boss</h2>
+       <br>
+        {% for row in rows_boss %}
+        <!-- {{row}} -->
+        <dl>
+          <dt>Boss Name:&nbsp&nbsp</dt>
+          <dd>{{row["name"]}}</dd>
+
+          <dt>Boss SSN:&nbsp&nbsp</dt>
+          <dd>{{row["ssn"]}}</dd>
+
+          <dt>Since Year:&nbsp&nbsp</dt>
+          <dd>{{row["since"]|int}}</dd>
+        </dl>
+        {% endfor %}
+
+    <hr>
+    
+       <br>
+       <h2>Team Manager</h2>
+       <br>
+        {% for row in rows_manager %}
+        <!-- {{row}} -->
+        <dl>
+          <dt>Manager Name:&nbsp&nbsp</dt>
+          <dd>{{row["mname"]}}</dd>
+
+          <dt>Manager SSN:&nbsp&nbsp</dt>
+          <dd>{{row["ssn"]}}</dd>
+
+          <dt>College:&nbsp&nbsp</dt>
+          <dd>{{row["college"]}}</dd>
+
+          <dt>Since Year:&nbsp&nbsp</dt>
+          <dd>{{row["since"]|int}}</dd>
+        </dl>
+        {% endfor %}
+
+    <hr>
+    
+       <br>
+       <h2>Games Played In</h2>
+       <br>
+      <table>
+         <thead>
+          <tr>
+              <th>Game ID</th>
+              <th>Date</th>
+              <th>Time</th>
+              <th>Host</th>
+              <th>Score of Host</th>
+              <th>Visitor</th>
+              <th>Score of Visitor</th>
+          </tr>
+         </thead>
+
+         {% for row in rows_game %}
+            <tr>
+               <td>{{row["gid"]|int}}</td>
+               <td>{{row["date"]}}</td>
+               <td>{{row["time"]}}</td>
+               <td>{{row["host"]}}</td>
+               <td>{{row["scoreh"]}}</td>
+               <td>{{row["visitor"]}}</td>
+               <td>{{row["scorev"]}}</td>
+            </tr>
+         {% endfor %}
+      </table>
+
+      <a class = "button two" href = "/index">return</a>
+  	</div>
+   </body>
+
+</html>

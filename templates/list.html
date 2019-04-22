@@ -1,0 +1,144 @@
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0, user-scalable=yes" /> 
+	<title>Show PostgreSQL Data</title>
+	<link rel= "stylesheet" href= "{{ url_for('static',filename='css/index.css')}}">
+</head>
+   <body>
+      
+   	<div class = "center">
+      <br>
+   		<h2>PostgreSQL Players Data</h2>
+      <table>
+         <thead>
+         	<tr>
+	            <th>Player Name</th>
+              <th>Team Name</th>
+	            <th>Player SSN</th>
+              <th>Player Birthday</th>
+              <th>Height (in)</th>
+              <th>Weight (lb)</th>
+              <th>position</th>
+              <th>Salary</th>
+              <th>Points Per Game</th>
+        	</tr>
+         </thead>
+
+         {% for row in rows_player %}
+            <tr>
+               <td>{{row["pid"]}}</td>
+               <td>{{row["team"]}}</td>
+               <td>{{row["ssn"]}}</td>
+               <td>{{row["birthday"]}}</td>
+               <td>{{row["height_in"]}}</td>
+               <td>{{row["weight_lb"]}}</td>
+               <td>{{row["position"]}}</td>
+               <td>{{row["salary2018_2019"]}}</td>
+               <td>{{row["pointspergame"]}}</td>
+            </tr>
+         {% endfor %}
+      </table>
+      <br>
+      <h2>PostgreSQL Coaches Data</h2>
+      <table>
+         <thead>
+          <tr>
+              <th>Coach Name</th>
+              <th>Team Name</th>
+              <th>Coach SSN</th>
+              <th>Coach Birthday</th>
+              <th>From Year</th>
+          </tr>
+         </thead>
+
+         {% for row in rows_coach %}
+            <tr>
+               <td>{{row["cname"]}}</td>
+               <td>{{row["team"]}}</td>
+               <td>{{row["ssn"]}}</td>
+               <td>{{row["birthday"]}}</td>
+               <td>{{row["fromyear"]}}</td>
+            </tr>
+         {% endfor %}
+      </table>
+      <br>
+      <h2>PostgreSQL Managers Data</h2>
+      <table>
+         <thead>
+          <tr>
+              <th>Manager Name</th>
+              <th>Team Name</th>
+              <th>Manager SSN</th>
+              <th>Manager Birthday</th>
+              <th>College</th>
+          </tr>
+         </thead>
+
+         {% for row in rows_manager %}
+            <tr>
+               <td>{{row["mname"]}}</td>
+               <td>{{row["team"]}}</td>
+               <td>{{row["ssn"]}}</td>
+               <td>{{row["birthday"]}}</td>
+               <td>{{row["college"]}}</td>
+            </tr>
+         {% endfor %}
+      </table>
+      <br>
+      <h2>PostgreSQL Teams Data</h2>
+      <table>
+         <thead>
+          <tr>
+              <th>Team ID</th>
+              <th>Team Name</th>
+              <th>Location</th>
+              <th>All Star Players</th>
+              <th>Number of Champion</th>
+          </tr>
+         </thead>
+
+         {% for row in rows_team %}
+            <tr>
+               <td>{{row["tid"]}}</td>
+               <td>{{row["name"]}}</td>
+               <td>{{row["location"]}}</td>
+               <td>{{row["allstarplayer"]}}</td>
+               <td>{{row["numofchampion"]}}</td>
+            </tr>
+         {% endfor %}
+      </table>
+      <br>
+      <h2>PostgreSQL Games Data</h2>
+      <table>
+         <thead>
+          <tr>
+              <th>Game ID</th>
+              <th>Date</th>
+              <th>Time</th>
+              <th>Host</th>
+              <th>Score of Host</th>
+              <th>Visitor</th>
+              <th>Score of Visitor</th>
+          </tr>
+         </thead>
+
+         {% for row in rows_game %}
+            <tr>
+               <td>{{row["gid"]}}</td>
+               <td>{{row["date"]}}</td>
+               <td>{{row["time"]}}</td>
+               <td>{{row["host"]}}</td>
+               <td>{{row["scoreh"]}}</td>
+               <td>{{row["visitor"]}}</td>
+               <td>{{row["scorev"]}}</td>
+            </tr>
+         {% endfor %}
+      </table>
+      <br>
+      <a class = "button two" href = "/index">return</a>
+  	</div>
+      
+
+   </body>
+</html>
