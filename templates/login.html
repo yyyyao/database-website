@@ -21,10 +21,12 @@ Login
         {{ wtf.form_field(form.password) }}
         {{ wtf.form_field(form.remember) }}
         {%if error%}
-<body>A oh, invalid username or password, please signup first or call 10086 for help.</body>
+<body>
+    <p style="color: red;">A oh, invalid username or password, please signup first or call 10086 for help.</p>
+</body>
 {%endif%}
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-    
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+        <p>New User? <a href="{{ url_for('signup') }}">Click to Register!</a></p>
       </form>
 
     </div> <!-- /container -->
